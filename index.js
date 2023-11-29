@@ -36,9 +36,9 @@ const drawDots = () => {
     if (dot.x >= -10) {
     	dot.x -= 1/6 * (60 - index * 2)
     } else {
-      const a = new Audio("https://bigsoundbank.com/UPLOAD/mp3/0280.mp3")
+      const a = new Audio("./ping.mp3")
       a.play()
-    	dot.x = sizes.relativeWidth(7/8)
+      dot.x = sizes.relativeWidth(7/8)
     }
   })
   
