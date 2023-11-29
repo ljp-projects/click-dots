@@ -14,7 +14,7 @@ const dots = [
   { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(4/5), draw: true }
 ]
 
-const drawDots = () => {
+const drawDots = async () => {
 	dots.forEach((dot, index) => {
   	if (!dot.draw) return
   	const el = document.createElement('div')
@@ -36,7 +36,7 @@ const drawDots = () => {
     if (dot.x >= -10) {
     	dot.x -= 1/6 * (60 - index * 2)
     } else {
-      const a = new Audio("./ping.mp3")
+      const a = await new Audio("./ping.mp3")
       a.play()
       dot.x = sizes.relativeWidth(7/8)
     }
