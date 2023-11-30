@@ -40,7 +40,7 @@ const drawDots = async () => {
     	new Audio("./ping.mp3").play()
       dot.velocity = 0
     } else {
-      dot.x -= dot.velocity === 1 ? -(1/6 * (index * 2)) : 1/6 * (index || 1 * 2)
+      dot.x -= dot.velocity === 1 ? -(1/6 * ((index || 1 )* 2)) : 1/6 * ((index || 1 )* 2)
     }
   })
   
