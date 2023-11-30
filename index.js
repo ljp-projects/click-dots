@@ -5,7 +5,7 @@ const sizes = {
   relativeHeight: p => sizes.height * p
 }
 
-const a = await new Audio('./ping.mp3')
+const a = new Audio('./ping.mp3')
 
 console.log(sizes.relativeWidth(1))
 
@@ -56,4 +56,4 @@ const drawDots = async () => {
   setTimeout(drawDots, 1/25)
 }
 
-drawDots()
+document.addEventListener('click', drawDots)
