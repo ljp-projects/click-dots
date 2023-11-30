@@ -8,10 +8,10 @@ const sizes = {
 console.log(sizes.relativeWidth(1))
 
 const dots = [
-	{ x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(1/5), draw: true },
-  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(2/5), draw: true },
-  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(3/5), draw: true },
-  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(4/5), draw: true }
+	{ x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(1/5), draw: true, velocity: 1 },
+  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(2/5), draw: true, velocity: 1 },
+  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(3/5), draw: true, velocity: 1 },
+  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(4/5), draw: true, velocity: 1 }
 ]
 
 const drawDots = async () => {
@@ -34,10 +34,11 @@ const drawDots = async () => {
     }
     
     if (dot.x >= -10) {
-    	dot.x -= 1/6 * (60 - index * 2)
+    	dot.x -= Boolean(dot.velocity) ? 1/6 * (60 - index * 2) : -(1/6 * (60 - index * 2))
     } else {
       new Audio("./ping.mp3").play()
       dot.x = sizes.relativeWidth(7/8)
+      dot.velocity = Boolean(dot.velocity) ? 0 : 1
     }
   })
   
