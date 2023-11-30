@@ -29,7 +29,7 @@ const drawDots = async () => {
     
     setTimeout(() => {
     	el.remove()
-    }, 2.5)
+    }, 250)
     
     el.onclick = () => {
     	console.log("E")
