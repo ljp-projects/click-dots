@@ -5,7 +5,7 @@ const sizes = {
   relativeHeight: p => sizes.height * p
 }
 
-const a = new Audio('./ping.mp3')
+const a = await new Audio('./ping.mp3')
 
 console.log(sizes.relativeWidth(1))
 
