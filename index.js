@@ -29,7 +29,7 @@ const drawDots = async () => {
     
     setTimeout(() => {
     	el.remove()
-    }, 250)
+    }, 1/25)
     
     el.onclick = () => {
     	console.log("E")
@@ -60,7 +60,7 @@ const drawDots = async () => {
       { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(7/10), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
       { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(4/5), draw: true, velocity: 1, audio: new Audio('./ping.mp3') }
     ]
-    
+
     drawDots()
   }, 1/25)
 }
