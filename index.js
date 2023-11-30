@@ -33,12 +33,16 @@ const drawDots = async () => {
       dot.draw = false
     }
     
-    if (dot.x > 0) {
-    	dot.x -= eval(`${dot.velocity === 1 ? "" : "-"}(1/6 * (60 - index * 2))`)
-    } else {
-      new Audio("./ping.mp3").play()
+    if (dot.x <= 0) {
+    	new Audio("./ping.mp3").play()
       dot.x = sizes.relativeWidth(7/8)
-      dot.velocity = Boolean(dot.velocity) ? 0 : 1
+      dot.velocity = 1
+    } else if (dot.x >= sizes.width) {
+    	new Audio("./ping.mp3").play()
+      dot.x = sizes.relativeWidth(7/8)
+      dot.velocity = 0
+    } else {
+      dot.x -= dot.velocity === 1 ? -(1/6 * (index * 2)) : 1/6 * (index * 2)
     }
   })
   
