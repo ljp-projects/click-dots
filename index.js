@@ -36,8 +36,7 @@ const drawDots = async () => {
     if (dot.x >= -10) {
     	dot.x -= 1/6 * (60 - index * 2)
     } else {
-      const a = await new Audio("./ping.mp3")
-      a.play()
+      await new Audio("./ping.mp3").play()
       dot.x = sizes.relativeWidth(7/8)
     }
   })
