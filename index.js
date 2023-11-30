@@ -37,7 +37,7 @@ const drawDots = async () => {
     	new Audio("./ping.mp3").play()
       dot.velocity = 0
     } else if (dot.x >= sizes.width) {
-    	new Audio("./ping.mp3").play()
+    	new Audio("./ping.mp3").play().catch(() => alert("HE NEED SOME MILK"))
       dot.velocity = 1
     } else {
       if (dot.velocity === 1) dot.x -= 1/6 * ((index || 1 )* 2)
