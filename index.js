@@ -5,8 +5,6 @@ const sizes = {
   relativeHeight: p => sizes.height * p
 }
 
-const a = new Audio('./ping.mp3')
-
 console.log(sizes.relativeWidth(1))
 
 const dots = [
@@ -21,6 +19,7 @@ const dots = [
 
 const drawDots = async () => {
 	dots.forEach((dot, index) => {
+    const a = new Audio('./ping.mp3')
   	if (!dot.draw) return
   	const el = document.createElement('div')
     el.setAttribute('class', 'dot')
