@@ -8,18 +8,17 @@ const sizes = {
 console.log(sizes.relativeWidth(1))
 
 const dots = [
-	{ x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(1/5), draw: true, velocity: 1 },
-  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(3/10), draw: true, velocity: 1 },
-  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(2/5), draw: true, velocity: 1 },
-  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(1/2), draw: true, velocity: 1 },
-  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(3/5), draw: true, velocity: 1 },
-  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(7/10), draw: true, velocity: 1 },
-  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(4/5), draw: true, velocity: 1 }
+	{ x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(1/5), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
+  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(3/10), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
+  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(2/5), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
+  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(1/2), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
+  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(3/5), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
+  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(7/10), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
+  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(4/5), draw: true, velocity: 1, audio: new Audio('./ping.mp3') }
 ]
 
 const drawDots = async () => {
 	dots.forEach((dot, index) => {
-    const a = new Audio('./ping.mp3')
   	if (!dot.draw) return
   	const el = document.createElement('div')
     el.setAttribute('class', 'dot')
@@ -38,11 +37,11 @@ const drawDots = async () => {
     }
     
     if (dot.x <= 0) {
-    	a.play().catch(() => alert("HE NEED SOME MILK"))
+    	dot.audio.play().catch(() => alert("HE NEED SOME MILK"))
       dot.velocity = 0
       dot.x = 1
     } else if (dot.x >= sizes.width - 25) {
-    	a.play().catch(() => alert("HE NEED SOME MILK"))
+    	dot.audio.play().catch(() => alert("HE NEED SOME MILK"))
       dot.velocity = 1
       dot.x = sizes.width - 26
     } else {
