@@ -42,8 +42,8 @@ const drawDots = async () => {
       dot.velocity = 1
       dot.x = sizes.width - 1
     } else {
-      if (dot.velocity === 1) dot.x -= 1/6 * ((index || 1 )* 2)
-      else if (dot.velocity === 0) dot.x -=  -(1/6 * ((index || 1 )* 2))
+      if (dot.velocity === 1) dot.x -= 1/6 * ((index || 0.5 )* 2)
+      else if (dot.velocity === 0) dot.x -=  -(1/6 * ((index || 0.5 )* 2))
       else alert("Fatal Error")
     }
   })
