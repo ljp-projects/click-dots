@@ -7,7 +7,7 @@ const sizes = {
 
 console.log(sizes.relativeWidth(1))
 
-const dots = [
+let dots = [
 	{ x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(1/5), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
   { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(3/10), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
   { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(2/5), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
@@ -33,15 +33,14 @@ const drawDots = async () => {
     
     el.onclick = () => {
     	console.log("E")
+      dot.audio.play().catch(() => alert("HE NEED SOME MILK"))
       dot.draw = false
     }
     
     if (dot.x <= 0) {
-    	dot.audio.play().catch(() => alert("HE NEED SOME MILK"))
       dot.velocity = 0
       dot.x = 1
     } else if (dot.x >= sizes.width - 25) {
-    	dot.audio.play().catch(() => alert("HE NEED SOME MILK"))
       dot.velocity = 1
       dot.x = sizes.width - 26
     } else {
@@ -50,8 +49,20 @@ const drawDots = async () => {
       else alert("Fatal Error")
     }
   })
-  
-  setTimeout(drawDots, 1/25)
+
+  setTimeout(() => {
+    if (!dots.some(dot => dot.draw)) dots = [
+      { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(1/5), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
+      { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(3/10), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
+      { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(2/5), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
+      { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(1/2), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
+      { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(3/5), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
+      { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(7/10), draw: true, velocity: 1, audio: new Audio('./ping.mp3') },
+      { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(4/5), draw: true, velocity: 1, audio: new Audio('./ping.mp3') }
+    ]
+    
+    drawDots()
+  }, 1/25)
 }
 
 document.addEventListener('click', drawDots)
