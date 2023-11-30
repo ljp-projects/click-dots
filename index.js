@@ -9,8 +9,11 @@ console.log(sizes.relativeWidth(1))
 
 const dots = [
 	{ x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(1/5), draw: true, velocity: 1 },
+  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(3/10), draw: true, velocity: 1 },
   { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(2/5), draw: true, velocity: 1 },
+  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(1/2), draw: true, velocity: 1 },
   { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(3/5), draw: true, velocity: 1 },
+  { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(7/10), draw: true, velocity: 1 },
   { x: sizes.relativeWidth(7/8), y: sizes.relativeHeight(4/5), draw: true, velocity: 1 }
 ]
 
